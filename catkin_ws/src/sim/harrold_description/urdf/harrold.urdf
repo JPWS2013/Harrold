@@ -1,0 +1,52 @@
+<?xml version ="1.0"?>
+	<robot name="Harrold">
+		<link name="base_link">
+			<visual>
+				<geometry>
+					<cylinder length="0.092" radius="0.17"/>
+				</geometry>
+				<origin rpy="0 0 0" xyz="0 0 0"/>
+				<material name="White">
+					<color rgba="0.8 0.8 0.8 1"/>
+				</material>
+			</visual>
+		</link>
+
+		<link name="wheel_1">
+			<visual>
+				<geometry>
+					<cylinder length="0.04" radius="0.02"/>
+				</geometry>
+				<origin rpy="0 1.6 1.6" xyz= "0 0.13 -0.044"/>
+				<material name="Black">
+					<color rgba="0 0 0 1"/>
+				</material>
+			</visual>
+		</link>
+
+		<link name="wheel_2">
+			<visual>
+				<geometry>
+					<cylinder length="0.04" radius="0.02"/>
+				</geometry>
+				<origin rpy="0 1.6 1.6" xyz= "0 -0.13 -0.044"/>
+				<material name="Black">
+					<color rgba="0 0 0 1"/>
+				</material>
+			</visual>
+		</link>
+
+		<joint name="base_to_wheel1" type="fixed">
+			<parent link="base_link"/>
+			<child link="wheel_1"/>
+			<origin xyz="0 0 0"/>
+		</joint>
+
+		<joint name="base_to_wheel2" type="fixed">
+			<parent link="base_link"/>
+			<child link="wheel_2"/>
+			<origin xyz="0 0 0"/>
+		</joint>
+
+
+	</robot>

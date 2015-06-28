@@ -1,0 +1,14 @@
+<?xml version ="1.0"?>
+	<robot name="Harrold">
+		<link name="base_link">
+			<visual>
+				<geometry>
+					<cylinder length="0.092" radius="0.34"/>
+				</geometry>
+				<origin rpy="0 0 0" xyz="0 0 0"/>
+				<material name="Gray">
+					<color rgba="128 128 128 1"/>
+				</material>
+			</visual>
+		</link>
+	</robot>
