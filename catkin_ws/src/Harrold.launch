@@ -1,7 +1,8 @@
 <launch>
+
 	<machine name="mast" address="169.254.7.78" env-loader="/home/parallels/Harrold/env.sh" user="parallels"/>
 
-	<machine name="Harrold" address="169.254.7.77" env-loader="/home/parallels/Harrold/env.sh" user="ubuntu"/>
+	<machine name="Harrold" address="169.254.7.77" env-loader="/home/ubuntu/Harrold/env.sh" user="ubuntu"/>
 
 	<node machine="Harrold" name="mast_list" pkg="rospy_tutorials" type="talker.py"/>
 
