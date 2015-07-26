@@ -1,0 +1,11 @@
+<!-- Launch file for all supplementary nodes to run on Harrold --!>
+
+<launch>
+
+	<machine name="mast" address="169.254.7.78"/>
+
+	<machine name="Harrold" address="169.254.7.77"/>
+
+	<node name="harrold_ard_drv" pkg="harrold_arduino_drivers" type="driver.py" raspawn="true"/>   
+
+</launch>
