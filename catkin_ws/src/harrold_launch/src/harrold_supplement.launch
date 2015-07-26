@@ -6,6 +6,6 @@
 
 	<machine name="Harrold" address="169.254.7.77"/>
 
-	<node name="harrold_ard_drv" pkg="harrold_arduino_drivers" type="driver.py" raspawn="true"/>   
+	<node name="harrold_ard_drv" pkg="harrold_arduino_drivers" type="driver.py" respawn="true"/>   
 
 </launch>
