@@ -3,7 +3,7 @@
 
 import serial
 import rospy
-from std_msgs.msg import String
+from std_msgs.msg import String, Float64
 from sensor_msgs.msg import Imu
 
 class Arduino:
@@ -13,7 +13,7 @@ class Arduino:
 		self.baud=baudrate
 		self.ser_obj=serial.Serial(self.port, self.baud, timeout=1)
 		self.imu_pub = rospy.Publisher('/mobile_base/sensors/imu_data', Imu, queue_size=10)
-		self.batt_pub = rospy.Publisher('/robot_batt', String, queue_size=10)
+		self.batt_pub = rospy.Publisher('/robot_batt', Float64, queue_size=10)
 
 		self.run_arduino()
 
