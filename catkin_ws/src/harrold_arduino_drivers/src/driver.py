@@ -12,7 +12,7 @@ class Arduino:
 		self.port=serial_port
 		self.baud=baudrate
 		self.ser_obj=serial.Serial(self.port, self.baud, timeout=1)
-		self.imu_pub = rospy.Publisher('/mobile_base/sensors/imu_data', Imu, queue_size=10)
+		self.imu_pub = rospy.Publisher('/imu/data', Imu, queue_size=10)
 		self.batt_pub = rospy.Publisher('/robot_batt', Float64, queue_size=10)
 
 		self.run_arduino()
@@ -32,7 +32,7 @@ class Arduino:
 				imu_message=Imu()
 
 				imu_message.header.stamp=rospy.Time.now()
-				imu_message.header.frame_id="gyro_link"
+				imu_message.header.frame_id="imu"
 
 				imu_message.orientation_covariance=[-1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
 
