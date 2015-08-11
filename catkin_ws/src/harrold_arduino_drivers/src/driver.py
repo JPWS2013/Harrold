@@ -34,6 +34,10 @@ class Arduino:
 				imu_message.header.stamp=rospy.Time.now()
 				imu_message.header.frame_id="imu"
 
+				imu_message.orientation.x=0.0
+				imu_message.orientation.y=0.0
+				imu_message.orientation.z=0.0
+				imu_message.orientation.w=1.0
 				imu_message.orientation_covariance=[-1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
 
 				imu_message.linear_acceleration.x=float(result[0])
