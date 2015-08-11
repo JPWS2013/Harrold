@@ -61,7 +61,8 @@ class Arduino:
 				#print ''
 
 if __name__ == '__main__':
-    try:
-        Arduino()
-    except rospy.ROSInterruptException:
-        pass
+	try:
+		Arduino()
+
+	except rospy.ROSInterruptException:
+		pass
