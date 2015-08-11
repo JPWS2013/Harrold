@@ -4,7 +4,7 @@
 import serial
 import rospy
 from std_msgs.msg import String
-from sensor_msgs import Imu
+from sensor_msgs.msg import Imu
 
 class Arduino:
 
@@ -29,8 +29,6 @@ class Arduino:
 
 			if len(result)==7:
 
-## TODO: The stuff below this line needs to be written such that it publishes to the /imu/data topic 
-#        in a manner that is appropriate for what that topic expects to see (see ROS documentation)
 				imu_message=Imu()
 
 				imu_message.header.stamp=rospy.Time.now()
@@ -46,19 +44,16 @@ class Arduino:
 				imu_message.angular_velocity.y=float(result[4])
 				imu_message.angular_velocity.z=float(result[5])
 
-				#accel=result[0:3]
-				#gyro=result[3:6]
-				#batt=result[6]
+				# accel=result[0:3]
+				# gyro=result[3:6]
+				# batt=result[6]
 
 				#res=[accel, gyro, batt]
 
-				self.imu_pub.publish(imu_message)
-				self.batt_pub.publish(float(result[6])
+				# self.imu_pub.publish(imu_message)
+				self.imu_pub.publish(message)
+				self.batt_pub.publish(float(result[6]))
 
-				#print 'Accel=', accel
-				#print 'Gyro=', gyro
-				#print 'Batt=', batt
-				#print ''
 
 if __name__ == '__main__':
 	try:
