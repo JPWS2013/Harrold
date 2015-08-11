@@ -32,7 +32,7 @@ class Arduino:
 				imu_message=Imu()
 
 				imu_message.header.stamp=rospy.Time.now()
-				imu_message.header.frame_id="/imu"
+				imu_message.header.frame_id="gyro_link"
 
 				imu_message.orientation_covariance=[-1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
 
