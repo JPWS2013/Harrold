@@ -4,6 +4,7 @@
 import serial
 import rospy
 from std_msgs.msg import String
+from sensor_msgs import Imu
 
 class Arduino:
 
@@ -11,7 +12,8 @@ class Arduino:
 		self.port=serial_port
 		self.baud=baudrate
 		self.ser_obj=serial.Serial(self.port, self.baud, timeout=1)
-		self.pub = rospy.Publisher('arduino_test', String, queue_size=10)
+		self.imu_pub = rospy.Publisher('/mobile_base/sensors/imu_data', Imu, queue_size=10)
+		self.batt_pub = rospy.Publisher('/robot_batt', String, queue_size=10)
 
 		self.run_arduino()
 
@@ -29,14 +31,29 @@ class Arduino:
 
 ## TODO: The stuff below this line needs to be written such that it publishes to the /imu/data topic 
 #        in a manner that is appropriate for what that topic expects to see (see ROS documentation)
+				imu_message=Imu()
 
-				accel=result[0:3]
-				gyro=result[3:6]
-				batt=result[6]
+				imu_message.header.stamp=rospy.Time.now()
+				imu_message.header.frame_id="/imu"
 
-				res=[accel, gyro, batt]
+				imu_message.orientation_covariance={-1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0}
 
-				self.pub.publish(message)
+				imu_message.linear_acceleration.x=float(result[0])
+				imu_message.linear_acceleration.y=float(result[1])
+				imu_message.linear_acceleration.z=float(result[2])
+
+				imu_message.angular_velocity.x=float(result[3])
+				imu_message.angular_velocity.y=float(result[4])
+				imu_message.angular_velocity.z=float(result[5])
+
+				#accel=result[0:3]
+				#gyro=result[3:6]
+				#batt=result[6]
+
+				#res=[accel, gyro, batt]
+
+				self.imu_pub.publish(imu_message)
+				self.batt_pub.publish(float(result[6])
 
 				#print 'Accel=', accel
 				#print 'Gyro=', gyro
