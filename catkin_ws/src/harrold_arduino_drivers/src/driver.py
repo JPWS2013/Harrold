@@ -51,7 +51,7 @@ class Arduino:
 				#res=[accel, gyro, batt]
 
 				# self.imu_pub.publish(imu_message)
-				self.imu_pub.publish(message)
+				self.imu_pub.publish(imu_message)
 				self.batt_pub.publish(float(result[6]))
 
 
