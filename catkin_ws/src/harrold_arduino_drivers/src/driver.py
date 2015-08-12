@@ -32,7 +32,7 @@ class Arduino:
 				imu_message=Imu()
 
 				imu_message.header.stamp=rospy.Time.now()
-				imu_message.header.frame_id="imu"
+				imu_message.header.frame_id="base_link"
 
 				imu_message.orientation.x=0.0
 				imu_message.orientation.y=0.0
