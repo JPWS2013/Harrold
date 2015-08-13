@@ -38,7 +38,7 @@ class Arduino:
 				imu_message.orientation.y=0.0
 				imu_message.orientation.z=0.0
 				imu_message.orientation.w=1.0
-				imu_message.orientation_covariance=[-1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+				imu_message.orientation_covariance=[-1, 0, 0, 0, 0, 0, 0, 0, 0]
 
 				imu_message.linear_acceleration.x=float(result[0])
 				imu_message.linear_acceleration.y=float(result[1])
